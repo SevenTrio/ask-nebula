@@ -1,10 +1,12 @@
-import { InferGetStaticPropsType, GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
-import classNames from 'classnames';
-import { Button } from '@/components/button';
 import { PageConfig } from '@/types/survey';
 import { getSurveyConfig, getSurveyPage } from '@/utils/surveyConfig';
-import styles from '@/styles/Survey.module.css';
+import { SurveyPageComponent } from '@/pageComponents/survey/Survey';
+import {
+  SurveyPageParams,
+  SurveyPageProps,
+} from '@/pageComponents/survey/Survey.types';
 
 export const getStaticPaths = (async () => {
   const surveyConfig = getSurveyConfig();
@@ -19,26 +21,11 @@ export const getStaticPaths = (async () => {
 
 export const getStaticProps = (async (context) => {
   const pageSlug = context.params?.slug;
-  const pageConfig = getSurveyPage(pageSlug);
+  const pageConfig = getSurveyPage(pageSlug) as PageConfig;
   return { props: { pageConfig } };
-}) satisfies GetStaticProps<
-  {
-    pageConfig: PageConfig | null;
-  },
-  {
-    slug: string;
-  }
->;
+}) satisfies GetStaticProps<SurveyPageProps, SurveyPageParams>;
 
-export default function SurveyPage({
-  pageConfig,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  if (!pageConfig) return null;
-
-  const handleClick = () => {
-    console.log('click');
-  };
-
+export default function SurveyPage({ pageConfig }: SurveyPageProps) {
   return (
     <>
       <Head>
@@ -48,29 +35,7 @@ export default function SurveyPage({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles['content-wrapper']}>
-        <div className={styles['content-container']}>
-          <div
-            className={classNames(styles['text-container'], {
-              [styles['text-container--special']]: pageConfig.isSpecialPage,
-            })}
-          >
-            <h2>{pageConfig.header}</h2>
-            {pageConfig.description && <p>{pageConfig.description}</p>}
-          </div>
-          <div className={styles['actions-container']}>
-            {pageConfig.actions.map((action) => (
-              <Button
-                isPrimary={pageConfig.isSpecialPage}
-                key={action.title}
-                onClick={() => handleClick()}
-              >
-                {action.title}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </div>
+      <SurveyPageComponent pageConfig={pageConfig} />
     </>
   );
 }

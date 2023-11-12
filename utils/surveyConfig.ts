@@ -41,7 +41,7 @@ const config: SurveyConfig = {
   'single-problem': {
     slug: 'single-problem',
     header:
-      'Single {{ gender }} {{ whoHaveChildren }} need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?',
+      'Single <%- obj.gender %> <%- obj.isParent ? "who have children" : "" %> need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?',
     actions: [
       { title: 'I was unhappy with low things were going in my relationship' },
       {
@@ -115,7 +115,7 @@ const config: SurveyConfig = {
   'relationship-problem': {
     slug: 'relationship-problem',
     header:
-      '{{ gender }} {{ whoHaveChildren }} need a slightly different approach to improve their relationship. Which statement best describes you?',
+      '<%- obj.gender %> <%- obj.isParent ? "who have children" : "" %> need a slightly different approach to improve their relationship. Which statement best describes you?',
     actions: [
       {
         title: 'I’m very unhappy with how things are going in my relationship',

@@ -16,19 +16,15 @@ export interface NextPageCondition {
   variants: Record<Variable, Slug>;
 }
 
-export interface BasicPageConfig {
+export interface PageConfig {
   slug: Slug;
   header: string;
   description?: string;
   isSpecialPage?: boolean;
   actions: Action[];
   saveAnswerTo?: Variable;
+  nextPage?: Slug;
+  nextPageCondition?: NextPageCondition;
 }
-
-export type NextPageData =
-  | { nextPageCondition?: NextPageCondition }
-  | { nextPage?: Slug };
-
-export type PageConfig = BasicPageConfig & NextPageData;
 
 export type SurveyConfig = Record<Slug, PageConfig>;

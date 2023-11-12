@@ -11,6 +11,14 @@
   transform: translate(-50%, -50%);
 }
 
+.back-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: 0;
+  cursor: pointer;
+}
+
 /* Mobile */
 @media (max-width: 700px) {
   .header {
