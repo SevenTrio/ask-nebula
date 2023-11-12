@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import Image from 'next/image';
-import styles from './Header.module.css';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { startPage } from '@/utils/surveyConfig';
+import styles from './Header.module.css';
 
 export const Header: FC = () => {
   const router = useRouter();
@@ -10,17 +11,24 @@ export const Header: FC = () => {
     router.back();
   };
 
+  const isStartPage = router.query.slug === startPage;
+
   return (
     <header className={styles.header}>
-      <button className={styles['back-button']} onClick={handleBackButtonClick}>
-        <Image
-          className={styles.chevron}
-          src="/chevron.svg"
-          alt="Chevron Icon"
-          width={24}
-          height={24}
-        />
-      </button>
+      {!isStartPage && (
+        <button
+          className={styles['back-button']}
+          onClick={handleBackButtonClick}
+        >
+          <Image
+            className={styles.chevron}
+            src="/chevron.svg"
+            alt="Chevron Icon"
+            width={24}
+            height={24}
+          />
+        </button>
+      )}
       <Image
         className={styles.logo}
         src="/nebula.svg"

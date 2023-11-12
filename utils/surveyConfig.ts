@@ -200,6 +200,8 @@ const config: SurveyConfig = {
   },
 };
 
+export const startPage = Object.keys(config)[0];
+
 export const getSurveyConfig = (): SurveyConfig => {
   return config;
 };

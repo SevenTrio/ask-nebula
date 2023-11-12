@@ -32,7 +32,7 @@ export const SurveyPageComponent: FC<SurveyPageProps> = ({ pageConfig }) => {
     }
 
     if (nextPage) {
-      router.push(`/${nextPage}`);
+      router.push(`/survey/${nextPage}`);
     } else if (nextPageCondition) {
       const { fieldToCompare, variants } = nextPageCondition;
 
@@ -43,7 +43,7 @@ export const SurveyPageComponent: FC<SurveyPageProps> = ({ pageConfig }) => {
       const nextPageFromCondition = variants[answerToCompare.toString()];
       if (!nextPageFromCondition) return;
 
-      router.push(`/${nextPageFromCondition}`);
+      router.push(`/survey/${nextPageFromCondition}`);
     }
   };
 
