@@ -1,18 +1,18 @@
-import { Gender, SurveyConfig } from '@/types/survey';
+import { Gender, PageConfig, Slug, SurveyConfig } from '@/types/survey';
 
 const config: SurveyConfig = {
-  'select-gender': {
-    slug: 'select-gender',
+  gender: {
+    slug: 'gender',
     header: 'Select your gender:',
     actions: [
       { title: 'Female', value: Gender.FEMALE },
       { title: 'Male', value: Gender.MALE },
     ],
     saveAnswerTo: 'gender',
-    nextPage: 'select-relationship-status',
+    nextPage: 'relationship-status',
   },
-  'select-relationship-status': {
-    slug: 'select-relationship-status',
+  'relationship-status': {
+    slug: 'relationship-status',
     header:
       'So we can get to know you better, tell us about your relationship status.',
     actions: [
@@ -200,6 +200,14 @@ const config: SurveyConfig = {
   },
 };
 
-const getSurveyConfig = (): SurveyConfig => {
+export const getSurveyConfig = (): SurveyConfig => {
   return config;
+};
+
+export const getSurveyPage = (pageSlug?: Slug): PageConfig | null => {
+  if (!pageSlug || !config[pageSlug]) {
+    return null;
+  }
+
+  return config[pageSlug];
 };

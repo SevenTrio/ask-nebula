@@ -1,5 +1,5 @@
-type Slug = string;
-type Variable = string;
+export type Slug = string;
+export type Variable = string;
 
 export enum Gender {
   MALE = 'Male',

@@ -1,0 +1,26 @@
+.button {
+  display: flex;
+  width: 330px;
+  height: 64px;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  border: var(--primary-button-border);
+  background: var(--primary-button-background);
+  color: var(--primary-button-color);
+  box-shadow: var(--primary-button-shadow);
+  cursor: pointer;
+}
+
+.button.button--secondary {
+  border: var(--secondary-button-border);
+  background: var(--secondary-button-background);
+  color: var(--secondary-button-color);
+  box-shadow: var(--secondary-button-shadow);
+}
+
+.button.button--secondary:active {
+  background: var(--secondary-button-active-background);
+  color: var(--secondary-button-active-color);
+}
