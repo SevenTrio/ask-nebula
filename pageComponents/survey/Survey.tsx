@@ -1,19 +1,16 @@
 import { FC } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import template from 'lodash.template';
 import { store } from '@/app/store';
 import { useAppDispatch } from '@/app/hooks';
 import { Button } from '@/components/button';
 import { saveAnswer, selectSurvey } from '@/features/survey/surveySlice';
+import { useTemplate } from '@/hooks/useTemplate';
 import { SurveyPageProps } from '@/pageComponents/survey/Survey.types';
 import { Action } from '@/types/survey';
 import styles from './Survey.module.css';
 
 export const SurveyPageComponent: FC<SurveyPageProps> = ({ pageConfig }) => {
-  const dispatch = useAppDispatch();
-  const router = useRouter();
-
   const {
     actions,
     description,
@@ -24,11 +21,9 @@ export const SurveyPageComponent: FC<SurveyPageProps> = ({ pageConfig }) => {
     saveAnswerTo,
   } = pageConfig;
 
-  const compile = template(header);
-  const parsedHeader = compile({
-    gender: 'Test',
-    isParent: true,
-  });
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const parsedHeader = useTemplate(header);
 
   const handleAnswer = (action: Action) => {
     if (saveAnswerTo) {

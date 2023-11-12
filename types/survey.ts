@@ -2,8 +2,8 @@ export type Slug = string;
 export type Variable = string;
 
 export enum Gender {
-  MALE = 'Male',
-  FEMALE = 'Female',
+  MALE = 'male',
+  FEMALE = 'female',
 }
 
 export interface Action {
