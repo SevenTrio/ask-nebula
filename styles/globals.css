@@ -2,10 +2,13 @@
   --primary-gradient: linear-gradient(166deg, #141333 -33.39%, #202261 15.89%, #543C97 55.84%, #6939A1 74.96%);
 
   --primary-background: #FFF0F0;
-  --secondary-background: var(--primary-gradient);
-
   --primary-typography-color: #333333;
+
+  --secondary-background: var(--primary-gradient);
   --secondary-typography-color: #FBFBFF;
+
+  --page-background: var(--primary-background);
+  --page-typography-color: var(--primary-typography-color);
 
   --primary-button-border: 0;
   --primary-button-background: #FBFBFF;
@@ -20,6 +23,8 @@
   --secondary-button-active-background: var(--primary-gradient);
   --secondary-button-active-color: #FBFBFF;
   --secondary-button-shadow: 2px 2px 6px 0px rgba(84, 60, 151, 0.25);
+
+  --image-filter: invert(0);
 }
 
 * {
@@ -35,6 +40,7 @@ body {
 }
 
 body {
-  color: var(--primary-typography-color);
-  background: var(--primary-background);
+  min-height: 100vh;
+  background: var(--page-background);
+  color: var(--page-typography-color);
 }

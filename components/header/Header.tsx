@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import classNames from 'classnames';
 import { startPage } from '@/utils/surveyConfig';
 import styles from './Header.module.css';
 
@@ -21,7 +22,7 @@ export const Header: FC = () => {
           onClick={handleBackButtonClick}
         >
           <Image
-            className={styles.chevron}
+            className={classNames(styles.image, styles.chevron)}
             src="/chevron.svg"
             alt="Chevron Icon"
             width={24}
@@ -30,7 +31,7 @@ export const Header: FC = () => {
         </button>
       )}
       <Image
-        className={styles.logo}
+        className={classNames(styles.image, styles.logo)}
         src="/nebula.svg"
         alt="Nebula Logo"
         width={24}

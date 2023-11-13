@@ -5,6 +5,10 @@
   min-height: 54px;
 }
 
+.image {
+  filter: var(--image-filter);
+}
+
 .logo {
   position: absolute;
   top: 50%;

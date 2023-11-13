@@ -69,6 +69,7 @@ const config: SurveyConfig = {
     header: 'So how does it work?',
     description:
       'We analyze hundreds of data points to create your unique astrological blueprint. This is combined with AI to tailor-make your astrological insights, based on your answers. We’re going to change your relationship with astrology.',
+    isSpecialPage: true,
     actions: [{ title: 'Next' }],
     nextPageCondition: {
       fieldToCompare: 'traitsTendToOverthink',
