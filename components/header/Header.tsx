@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { startPage } from '@/utils/surveyConfig';
+import { startPage } from '@/utils/survey';
 import styles from './Header.module.css';
 
 export const Header: FC = () => {

@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { PageConfig } from '@/types/survey';
-import { getSurveyConfig, getSurveyPage } from '@/utils/surveyConfig';
+import { getSurveyConfig, getSurveyPage } from '@/utils/survey';
 import { SurveyPageComponent } from '@/pageComponents/survey/Survey';
 import {
   SurveyPageParams,
