@@ -10,6 +10,16 @@ import { SurveyPageProps } from '@/pageComponents/survey/Survey.types';
 import { Action } from '@/types/survey';
 import styles from './Survey.module.css';
 
+const specialPageStyles = (
+  <style jsx global>{`
+    :root {
+      --page-background: var(--secondary-background);
+      --page-typography-color: var(--secondary-typography-color);
+      --image-filter: invert(1);
+    }
+  `}</style>
+);
+
 export const SurveyPageComponent: FC<SurveyPageProps> = ({ pageConfig }) => {
   const {
     actions,
@@ -50,15 +60,7 @@ export const SurveyPageComponent: FC<SurveyPageProps> = ({ pageConfig }) => {
   return (
     <div className={styles['content-wrapper']}>
       <div className={styles['content-container']}>
-        {isSpecialPage && (
-          <style jsx global>{`
-            :root {
-              --page-background: var(--secondary-background);
-              --page-typography-color: var(--secondary-typography-color);
-              --image-filter: invert(1);
-            }
-          `}</style>
-        )}
+        {isSpecialPage && specialPageStyles}
         <div
           className={classNames(styles['text-container'], {
             [styles['text-container--special']]: isSpecialPage,
