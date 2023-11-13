@@ -1,7 +1,7 @@
 .button {
   display: flex;
-  width: 330px;
-  height: 64px;
+  width: 100%;
+  min-height: 64px;
   padding: 12px 20px;
   justify-content: center;
   align-items: center;
