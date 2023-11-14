@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import { store } from '@/app/store';
+import { useStore } from 'react-redux';
+import { useRouter } from 'next/router';
+import { RootState } from '@/app/store';
 import { useAppDispatch } from '@/app/hooks';
 import { Button } from '@/components/button';
 import { saveAnswer, selectSurvey } from '@/features/survey/surveySlice';
@@ -32,6 +33,7 @@ export const SurveyPageComponent: FC<SurveyPageProps> = ({ pageConfig }) => {
   } = pageConfig;
 
   const dispatch = useAppDispatch();
+  const store = useStore<RootState>();
   const router = useRouter();
   const parsedHeader = useTemplate(header);
 
@@ -58,18 +60,18 @@ export const SurveyPageComponent: FC<SurveyPageProps> = ({ pageConfig }) => {
   };
 
   return (
-    <div className={styles['content-wrapper']}>
-      <div className={styles['content-container']}>
+    <div className={styles.contentWrapper}>
+      <div className={styles.contentContainer}>
         {isSpecialPage && specialPageStyles}
         <div
-          className={classNames(styles['text-container'], {
-            [styles['text-container--special']]: isSpecialPage,
+          className={classNames(styles.textContainer, {
+            [styles.textContainer__special]: isSpecialPage,
           })}
         >
           <h2>{parsedHeader}</h2>
           {description && <p>{description}</p>}
         </div>
-        <div className={styles['actions-container']}>
+        <div className={styles.actionsContainer}>
           {actions.map((action) => (
             <Button
               isPrimary={isSpecialPage}

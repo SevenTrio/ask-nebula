@@ -13,14 +13,14 @@
   cursor: pointer;
 }
 
-.button.button--secondary {
+.button.button__secondary {
   border: var(--secondary-button-border);
   background: var(--secondary-button-background);
   color: var(--secondary-button-color);
   box-shadow: var(--secondary-button-shadow);
 }
 
-.button.button--secondary:active {
+.button.button__secondary:active {
   background: var(--secondary-button-active-background);
   color: var(--secondary-button-active-color);
 }

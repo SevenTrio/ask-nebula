@@ -17,10 +17,7 @@ export const Header: FC = () => {
   return (
     <header className={styles.header}>
       {!isStartPage && (
-        <button
-          className={styles['back-button']}
-          onClick={handleBackButtonClick}
-        >
+        <button className={styles.backButton} onClick={handleBackButtonClick}>
           <Image
             className={classNames(styles.image, styles.chevron)}
             src="/chevron.svg"
