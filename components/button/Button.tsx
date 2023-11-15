@@ -15,7 +15,7 @@ export const Button: FC<ButtonProps> = ({
     <button
       {...buttonProps}
       className={classnames(styles.button, buttonProps.className, {
-        [styles.button__secondary]: !isPrimary,
+        [styles.buttonSecondary]: !isPrimary,
       })}
     >
       {children}

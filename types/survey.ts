@@ -6,6 +6,11 @@ export enum Gender {
   FEMALE = 'female',
 }
 
+export enum ScreenType {
+  QUESTION = 'question',
+  INFORMATION = 'information',
+}
+
 export interface Action {
   title: string;
   value?: string | boolean;
@@ -20,7 +25,7 @@ export interface PageConfig {
   slug: Slug;
   header: string;
   description?: string;
-  isSpecialPage?: boolean;
+  screenType: ScreenType;
   actions: Action[];
   saveAnswerTo?: Variable;
   nextPage?: Slug;

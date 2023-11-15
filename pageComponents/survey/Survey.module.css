@@ -15,24 +15,3 @@
     margin-bottom: 15px;
   }
 }
-
-.text-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.text-container.text-container__special {
-  gap: 20px;
-  margin-top: 16px;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.actions-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}

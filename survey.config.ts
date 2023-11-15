@@ -1,9 +1,10 @@
-import { Gender, SurveyConfig } from '@/types/survey';
+import { Gender, ScreenType, SurveyConfig } from '@/types/survey';
 
 export const config: SurveyConfig = {
   gender: {
     slug: 'gender',
     header: 'Select your gender:',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Female', value: Gender.FEMALE },
       { title: 'Male', value: Gender.MALE },
@@ -15,6 +16,7 @@ export const config: SurveyConfig = {
     slug: 'relationship-status',
     header:
       'So we can get to know you better, tell us about your relationship status.',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Single', value: true },
       { title: 'In a relationship', value: false },
@@ -31,6 +33,7 @@ export const config: SurveyConfig = {
   'single-flow': {
     slug: 'single-flow',
     header: 'Are you a single parent?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Yes', value: true },
       { title: 'No', value: false },
@@ -42,6 +45,7 @@ export const config: SurveyConfig = {
     slug: 'single-problem',
     header:
       'Single <%- obj.gender %> <%- obj.isParent ? "who have children" : "" %> need a slightly different approach to find their perfect partner. But first, how did you feel in your last relationship?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'I was unhappy with low things were going in my relationship' },
       {
@@ -57,6 +61,7 @@ export const config: SurveyConfig = {
   'traits-tend-to-overthink': {
     slug: 'traits-tend-to-overthink',
     header: 'Do you tend to overthink?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Yes', value: true },
       { title: 'No', value: false },
@@ -69,7 +74,7 @@ export const config: SurveyConfig = {
     header: 'So how does it work?',
     description:
       'We analyze hundreds of data points to create your unique astrological blueprint. This is combined with AI to tailor-make your astrological insights, based on your answers. We’re going to change your relationship with astrology.',
-    isSpecialPage: true,
+    screenType: ScreenType.INFORMATION,
     actions: [{ title: 'Next' }],
     nextPageCondition: {
       fieldToCompare: 'traitsTendToOverthink',
@@ -82,6 +87,7 @@ export const config: SurveyConfig = {
   'traits-most-important': {
     slug: 'traits-most-important',
     header: 'What is most important to you?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Success' },
       { title: 'Romance' },
@@ -94,6 +100,7 @@ export const config: SurveyConfig = {
   'traits-emotional-control': {
     slug: 'traits-emotional-control',
     header: 'Is emotional control tricky for you?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Yes' },
       { title: 'Sometimes' },
@@ -106,6 +113,7 @@ export const config: SurveyConfig = {
   'relationship-flow': {
     slug: 'relationship-flow',
     header: 'Are you a parent?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Yes', value: true },
       { title: 'No', value: false },
@@ -117,6 +125,7 @@ export const config: SurveyConfig = {
     slug: 'relationship-problem',
     header:
       '<%- obj.gender %> <%- obj.isParent ? "who have children" : "" %> need a slightly different approach to improve their relationship. Which statement best describes you?',
+    screenType: ScreenType.QUESTION,
     actions: [
       {
         title: 'I’m very unhappy with how things are going in my relationship',
@@ -133,6 +142,7 @@ export const config: SurveyConfig = {
   'partner-introvert-or-extrovert': {
     slug: 'partner-introvert-or-extrovert',
     header: 'Is your partner an introvert or extrovert?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Introvert' },
       { title: 'Extrovert' },
@@ -144,6 +154,7 @@ export const config: SurveyConfig = {
   'partner-gender': {
     slug: 'partner-gender',
     header: 'What is your partner’s gender?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Male', value: Gender.MALE },
       { title: 'Female', value: Gender.FEMALE },
@@ -155,6 +166,7 @@ export const config: SurveyConfig = {
     slug: 'partner-priority',
     header: 'Do you agree with the statement below?',
     description: '“My partner and I make sex a priority in our relationship”',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Strongly agree' },
       { title: 'Agree' },
@@ -168,6 +180,7 @@ export const config: SurveyConfig = {
   'think-about-relationship-goals': {
     slug: 'think-about-relationship-goals',
     header: 'When you think about your relationship goals, you feel...?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Optimistic! They are totally doable, with some guidance.' },
       { title: 'Cautious. I’ve struggled before, but I’m hopeful.' },
@@ -179,6 +192,7 @@ export const config: SurveyConfig = {
   'about-us': {
     slug: 'about-us',
     header: 'Where did you hear about us?',
+    screenType: ScreenType.QUESTION,
     actions: [
       { title: 'Poster or Billboard' },
       { title: 'Friend or Family' },
